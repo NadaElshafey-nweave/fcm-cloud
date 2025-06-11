@@ -16,7 +16,7 @@ app.use(cors());
 app.use(express.json());
 
 // Path to your serviceAccountKey.json
-const serviceAccount = require("./serviceAccountKey.json");
+const serviceAccount = JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT);
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
