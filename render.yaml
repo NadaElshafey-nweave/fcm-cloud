@@ -3,7 +3,7 @@ services:
     name: fcm-cloud
     runtime: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app:app"
+    startCommand: "gunicorn app:app --bind 0.0.0.0:$PORT"
     envVars:
       - key: GOOGLE_APPLICATION_CREDENTIALS_JSON
-        value: ${GOOGLE_APPLICATION_CREDENTIALS_JSON}
+        sync: false
